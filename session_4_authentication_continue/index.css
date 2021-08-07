@@ -1,0 +1,50 @@
+html,
+body {
+    font-family: 'sans-serif';
+    margin: 0;
+    padding: 0;
+}
+
+.input-group {
+    margin: 10px 0px;
+}
+
+.input-group .has-error input {
+    border: 1px solid red;
+    color: red;
+    outline: red;
+}
+
+.error-msg {
+    font-style: 12px;
+    font-style: italic;
+    color: red;
+}
+
+.input-group input {
+    padding: 5px 8px;
+    margin: 3px 0px;
+    width: 100%;
+    border-radius: 5px;
+    border: 1px solid #555
+}
+
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.h-screen {
+    height: 100vh;
+}
+
+.flex-col {
+    flex-direction: column;
+}
+
+.btn-link {
+    font-size: 12px;
+    color: blue;
+    cursor: pointer;
+}

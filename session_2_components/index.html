@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app"></div>
+
+</body>
+<script src="clock.js"></script>
+<script src="input_group.js"></script>
+
+<script>
+    const app = document.getElementById('app');
+    const clocks = []
+
+    const btnAddMore = document.createElement("button")
+    btnAddMore.innerHTML = 'Add'
+    btnAddMore.addEventListener('click', () => {
+        const clock = new Clock()
+        clocks.push(clock)
+        app.appendChild(clock.render())
+    })
+
+    const btnStartAll = document.createElement("button")
+    btnStartAll.innerHTML = 'Start All'
+    btnStartAll.addEventListener('click', () => {
+        clocks.forEach(clock => {
+            clock.Start()
+        })
+    })
+
+    app.appendChild(btnAddMore)
+    app.appendChild(btnStartAll)
+
+    const usernameInput = new InputGroup('Username', 'text')
+    const passwordInput = new InputGroup('Password', 'password')
+    app.appendChild(usernameInput.render())
+    app.appendChild(passwordInput.render())
+
+    const btnSubmit = document.createElement("button")
+    btnSubmit.innerHTML = "Submit"
+    btnSubmit.addEventListener('click', () => {
+        usernameInput.setSuccessMessage('Looks good!')
+        passwordInput.setErrorMessage('This field cannot be empty!')
+    })
+    app.appendChild(btnSubmit)
+</script>
+<!-- <script>
+    let seconds = 0;
+    let timeInterval = null
+    document.getElementById('btnStart').addEventListener('click', () => {
+        timeInterval = setInterval(() => {
+            seconds++;
+            const time = formatSeconds(seconds)
+            document.getElementById('time').innerHTML = time
+        }, 1000)
+    })
+    document.getElementById('btnPause').addEventListener('click', () => {
+        if (timeInterval) {
+            clearInterval(timeInterval)
+        }
+    })
+    document.getElementById('btnStop').addEventListener('click', () => {
+        if (timeInterval) {
+            clearInterval(timeInterval)
+        }
+        seconds = 0;
+        document.getElementById('time').innerHTML = formatSeconds(seconds)
+    })
+
+    function formatSeconds(seconds) {
+        const m = Math.floor(seconds / 60)
+        const s = seconds % 60
+        return m + ":" + s;
+    }
+</script> -->
+
+</html>
